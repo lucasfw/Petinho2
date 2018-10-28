@@ -91,7 +91,7 @@
         android:layout_height="90dp"
         android:background="@drawable/bg_edit_text"
         android:ems="10"
-        android:hint="Descrição"
+        android:hint="Descricao"
         android:inputType="textPersonName"
         android:padding="10dp" />
 
