@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "42132004792",
+    "firebase_url": "https://petinho-c43ac.firebaseio.com",
+    "project_id": "petinho-c43ac",
+    "storage_bucket": "petinho-c43ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42132004792:android:fbfb7017d26c2da6",
+        "android_client_info": {
+          "package_name": "com.petinho.lucas.petinho"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42132004792-24s6kcegqm8jt866hu1c5c8peot9b9mm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.petinho.lucas.petinho",
+            "certificate_hash": "0f1c3d0a1b46a0636c8c045dc568718df89531a4"
+          }
+        },
+        {
+          "client_id": "42132004792-pb6j8hddd0utt4augebk8o7gkcq5uad4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF1Pdd0P0tRUgqu603HnK1pHASmhOCMEY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42132004792-pb6j8hddd0utt4augebk8o7gkcq5uad4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
