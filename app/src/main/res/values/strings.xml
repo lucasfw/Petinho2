@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Petinho</string>
-    <string name="title_activity_meus_anucios">MeusAnuciosActivity</string>
+    <string name="title_activity_meus_anucios">Meus Anúcios</string>
+    <string-array name="estados">
+        <item>AC</item>
+        <item>SE</item>
+        <item>SP</item>
+        <item>RJ</item>
+        <item>MG</item>
+        <item>RS</item>
+    </string-array>
+    <string-array name="categorias">
+        <item>Automovel</item>
+        <item>Imoveis</item>
+        <item>Eletronicos</item>
+        <item>Moda</item>
+        <item>Esporte</item>
+    </string-array>
 </resources>

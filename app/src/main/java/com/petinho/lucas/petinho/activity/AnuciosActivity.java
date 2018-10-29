@@ -21,7 +21,7 @@ public class AnuciosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_anucios);
 
         //Configuracoes
-        autenticacao = ConfiguracaoFirebase.getReferenciaAutenticacao();
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         //autenticacao.signOut();
     }
 
