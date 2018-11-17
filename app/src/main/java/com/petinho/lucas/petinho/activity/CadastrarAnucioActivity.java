@@ -2,6 +2,7 @@ package com.petinho.lucas.petinho.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,7 +10,6 @@ import android.net.Uri;
 import android.nfc.Tag;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +37,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import dmax.dialog.SpotsDialog;
+
 public class CadastrarAnucioActivity extends AppCompatActivity
                                         implements View.OnClickListener{
 
@@ -47,6 +49,7 @@ public class CadastrarAnucioActivity extends AppCompatActivity
     private MaskEditText campoTelefone;
     private Anucio anucio;
     private StorageReference storage;
+    private AlertDialog dialog;
 
     private String[] permissoes = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
@@ -70,6 +73,14 @@ public class CadastrarAnucioActivity extends AppCompatActivity
     }
 
     public void salvarAnucio(){
+
+        dialog = new SpotsDialog.Builder()
+                .setContext(this)
+                .setMessage("Salvando Anúcio")
+                .setCancelable(false)
+                .build();
+        dialog.show();
+
         //Salvar imagem no storage
         for (int i=0; i< listaFotosRecuperadas.size(); i++){
             String urlImagem = listaFotosRecuperadas.get(i);
@@ -81,7 +92,7 @@ public class CadastrarAnucioActivity extends AppCompatActivity
 
     private void salvarFotoStorage(String urlString, final int totalFotos, int contador){
         //Criar só no storage
-        StorageReference imagemAnucio = storage.child("imagens")
+        final StorageReference imagemAnucio = storage.child("imagens")
                 .child("anucios")
                 .child(anucio.getIdAnucio())
                 .child("imagem" + contador);
@@ -91,13 +102,22 @@ public class CadastrarAnucioActivity extends AppCompatActivity
         uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Task<Uri> firebaseUrl = taskSnapshot.getStorage().getDownloadUrl();
-                String urlConvertida = firebaseUrl.toString();
 
-                listaURLFotos.add(urlConvertida);
+                Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                while (!urlTask.isSuccessful());
+                Uri downloadUrl = urlTask.getResult();
+
+
+
+                //Task<Uri> firebaseUrl = taskSnapshot.getStorage().getDownloadUrl();
+               //String urlConvertida = firebaseUrl.toString();
+                listaURLFotos.add(downloadUrl.toString());
+
                 if(totalFotos== listaURLFotos.size()){
                     anucio.setFotos(listaURLFotos);
                     anucio.salvar();
+                    dialog.dismiss();
+                    finish();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -112,7 +132,7 @@ public class CadastrarAnucioActivity extends AppCompatActivity
         String estado = campoEstado.getSelectedItem().toString();
         String categoria = campoCategoria.getSelectedItem().toString();
         String titulo = campoTitulo.getText().toString();
-        String valor = String.valueOf(campoValor.getRawValue());
+        String valor = campoValor.getText().toString();
         String telefone = campoTelefone.getText().toString();
         String descricao = campoDescricao.getText().toString();
 
@@ -129,13 +149,14 @@ public class CadastrarAnucioActivity extends AppCompatActivity
 
     public void validarDadosAnucio(View view){
         anucio = configurarAnucio();
+        String valor = String.valueOf(campoValor.getRawValue());
 
 
         if(listaFotosRecuperadas.size() != 0){
             if(!anucio.getEstado().isEmpty()){
                 if(!anucio.getCategoria().isEmpty()){
                     if(!anucio.getTitulo().isEmpty()){
-                        if(!anucio.getValor().isEmpty()){
+                        if(/*!valor.isEmpty() &&*/ !valor.equals("23923923923923")){
                             if(!anucio.getTelefone().isEmpty()){
                                 if(!anucio.getDescricao().isEmpty()){
                                     salvarAnucio();

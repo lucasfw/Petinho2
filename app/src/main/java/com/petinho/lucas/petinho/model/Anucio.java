@@ -3,9 +3,10 @@ package com.petinho.lucas.petinho.model;
 import com.google.firebase.database.DatabaseReference;
 import com.petinho.lucas.petinho.helper.ConfiguracaoFirebase;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Anucio {
+public class Anucio implements Serializable {
     private String idAnucio;
     private String estado;
     private String categoria;
@@ -25,9 +26,42 @@ public class Anucio {
         String idUsuario = ConfiguracaoFirebase.getIdUsuario();
         DatabaseReference anucioRef = ConfiguracaoFirebase.getFirebase()
                 .child("meus_anucios");
+
         anucioRef.child(idUsuario)
                 .child(getIdAnucio())
                 .setValue(this);
+
+        salvarAnucioPublico();
+    }
+
+    public void salvarAnucioPublico(){
+        DatabaseReference anucioRef = ConfiguracaoFirebase.getFirebase()
+                .child("anucios");
+
+        anucioRef.child(getEstado())
+                .child(getCategoria())
+                .child(getIdAnucio())
+                .setValue(this);
+    }
+
+    public void remover(){
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference anucioRef = ConfiguracaoFirebase.getFirebase()
+                .child("meus_anucios")
+                .child(idUsuario)
+                .child(getIdAnucio());
+        anucioRef.removeValue();
+        removerAnucioPublico();
+    }
+
+    public void removerAnucioPublico(){
+        DatabaseReference anucioRef = ConfiguracaoFirebase.getFirebase()
+                .child("anucios")
+                .child(getEstado())
+                .child(getCategoria())
+                .child(getIdAnucio());
+        anucioRef.removeValue();
+
     }
 
     public String getIdAnucio() {

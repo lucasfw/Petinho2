@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".activity.MapsActivity">
+    <TextView
+        android:id="@+id/latitude_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/longitude_label"
+        android:text="Latitude : "
+        android:textStyle="italic"
+        android:layout_marginLeft="85dp"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/latitude_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:layout_alignBaseline="@+id/latitude_label"
+        android:layout_toRightOf="@+id/latitude_label"
+        android:textIsSelectable="true"
+        android:text="Latitude Goes Here"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/longitude_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="10dp"
+        android:text="Longitude : "
+        android:textStyle="italic"
+        android:textSize="22dp" />
+    <TextView
+        android:id="@+id/longitude_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/longitude_label"
+        android:layout_toRightOf="@+id/longitude_label"
+        android:textIsSelectable="true"
+        android:textStyle="italic"
+        android:text="Longitude Goes Here"
+        android:textSize="22dp"/>
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Location"
+        android:padding="10dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:id="@+id/save_location"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:layout_below="@id/longitude_label"
+        android:background="@color/colorPrimary"
+        android:textColor="#FFFFFF"
+        />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Onde você quer ir?"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="geoLocate"
+        android:text="IR" />
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,19 +1,21 @@
 <resources>
     <string name="app_name">Petinho</string>
+
+    <string name="google_map_api_key">AIzaSyDJwLj1hfXbhwE7cYpokTefmHzRDYZWcm8</string>
+
     <string name="title_activity_meus_anucios">Meus Anúcios</string>
     <string-array name="estados">
-        <item>AC</item>
-        <item>SE</item>
-        <item>SP</item>
-        <item>RJ</item>
-        <item>MG</item>
-        <item>RS</item>
+        <item>Vira-Lata</item>
+        <item>Poodle</item>
+        <item>Pinscher</item>
+        <item>Pit Bull</item>
     </string-array>
     <string-array name="categorias">
-        <item>Automovel</item>
-        <item>Imoveis</item>
-        <item>Eletronicos</item>
-        <item>Moda</item>
-        <item>Esporte</item>
+        <item>Pequeno Porte</item>
+        <item>Médio Porte</item>
+        <item>Grande Porte</item>
     </string-array>
+    <string name="title_activity_mains">Map</string>
+
+
 </resources>
