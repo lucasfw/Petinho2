@@ -36,8 +36,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AnuciosActivity" />
-        <activity android:name=".activity.CadastroActivity"></activity>
+        <activity android:name=".activity.AnuciosActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.CadastroActivity" />
         <activity
             android:name=".activity.MeusAnuciosActivity"
             android:label="@string/title_activity_meus_anucios"
@@ -51,13 +57,8 @@
         <activity
             android:name=".activity.DetalhesActivity"
             android:parentActivityName=".activity.AnuciosActivity" />
-        <activity android:name=".activity.MapsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activity.MapsActivity" />
+        <activity android:name=".activity.CadastrarAnimalPerdidoActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -70,7 +71,11 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".activity.CadastrarAnimalPerdidoActivity"></activity>
+        <activity
+            android:name=".MainActivitytyt"
+            android:label="@string/title_activity_main_activitytyt"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.DoacoesActivity"></activity>
     </application>
 
 </manifest>

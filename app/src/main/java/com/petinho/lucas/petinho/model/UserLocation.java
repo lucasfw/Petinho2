@@ -9,9 +9,9 @@ public class UserLocation {
 
     private GeoPoint geo_point;
     private @ServerTimestamp Date timestamp;
-    private User user;
+    private UserInformation user;
 
-    public UserLocation(GeoPoint geo_point, Date timestamp, User user) {
+    public UserLocation(GeoPoint geo_point, Date timestamp, UserInformation user) {
         this.geo_point = geo_point;
         this.timestamp = timestamp;
         this.user = user;
@@ -37,11 +37,11 @@ public class UserLocation {
         this.timestamp = timestamp;
     }
 
-    public User getUser() {
+    public UserInformation getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserInformation user) {
         this.user = user;
     }
 

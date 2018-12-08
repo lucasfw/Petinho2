@@ -25,8 +25,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
-        android:text="Titulo"
-        android:textSize="16sp" />
+        android:text="Nome do Animal"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textPrecoDetalhe"
@@ -35,8 +35,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:paddingBottom="8dp"
-        android:text="TextView"
-        android:textSize="20sp" />
+        android:text="Nome do dono"
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
@@ -53,12 +53,22 @@
         android:layout_marginRight="8dp"
         android:drawableLeft="@drawable/ic_local_roxo_24dp"
         android:padding="8dp"
-        android:text="SP" />
+        android:text="SE" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/textTelefoneDetalhe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="10dp"
+        android:text="Descricao" />
 
     <TextView
         android:id="@+id/textDescricaoDetalhe"
@@ -77,7 +87,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:onClick="visualizarTelefone"
-        android:text="Button"
+        android:text="LIGAR"
         android:theme="@style/botaoPadrao" />
 
 

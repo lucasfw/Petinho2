@@ -52,6 +52,10 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    implementation 'com.craftman.cardform:cardform:0.0.2'
 }
 
 apply plugin: 'com.google.gms.google-services'

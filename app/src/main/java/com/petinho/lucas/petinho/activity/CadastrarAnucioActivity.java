@@ -45,7 +45,7 @@ public class CadastrarAnucioActivity extends AppCompatActivity
     private EditText campoTitulo, campoDescricao;
     private ImageView imagem1, imagem2, imagem3;
     private Spinner campoEstado, campoCategoria;
-    private CurrencyEditText campoValor;
+    private EditText campoValor;
     private MaskEditText campoTelefone;
     private Anucio anucio;
     private StorageReference storage;
@@ -149,14 +149,14 @@ public class CadastrarAnucioActivity extends AppCompatActivity
 
     public void validarDadosAnucio(View view){
         anucio = configurarAnucio();
-        String valor = String.valueOf(campoValor.getRawValue());
+        //String valor = String.valueOf(campoValor.getRawValue());
 
 
         if(listaFotosRecuperadas.size() != 0){
             if(!anucio.getEstado().isEmpty()){
                 if(!anucio.getCategoria().isEmpty()){
                     if(!anucio.getTitulo().isEmpty()){
-                        if(/*!valor.isEmpty() &&*/ !valor.equals("23923923923923")){
+                        if(!anucio.getValor().isEmpty()){
                             if(!anucio.getTelefone().isEmpty()){
                                 if(!anucio.getDescricao().isEmpty()){
                                     salvarAnucio();
@@ -269,9 +269,7 @@ public class CadastrarAnucioActivity extends AppCompatActivity
         imagem3.setOnClickListener(this);
 
 
-        //Configura Localidade
-        Locale locale = new Locale("pt","BR");
-        campoValor.setLocale(locale);
+
     }
 
     @Override

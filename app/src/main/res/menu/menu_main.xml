@@ -5,7 +5,15 @@
 
     <group android:id="@+id/group_logado" android:visible="false">
         <item android:id="@+id/menu_anucios"
-            android:title="Meus anúcios"/>
+            android:title="Meus anúncios"/>
+
+        <item android:id="@+id/menu_perdidos"
+            android:title="Animais Perdidos"/>
+
+        <item android:id="@+id/menu_doacoes"
+            android:title="Doações"/>
+
+
 
         <item android:id="@+id/menu_sair"
             android:title="Sair"/>
@@ -13,11 +21,6 @@
     <group android:id="@+id/group_deslogado" android:visible="false">
         <item android:id="@+id/menu_cadastrar"
             android:title="Cadastar / Entrar"
-            app:showAsAction="always"/>
-    </group>
-    <group android:id="@+id/group_perdidos" android:visible="true">
-        <item android:id="@+id/menu_perdidos"
-            android:title="Animais Perdidos"
             app:showAsAction="always"/>
     </group>
 </menu>

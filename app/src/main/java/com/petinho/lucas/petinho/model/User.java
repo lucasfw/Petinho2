@@ -3,13 +3,18 @@ package com.petinho.lucas.petinho.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class User implements Parcelable {
+public class User implements Parcelable{
+
     private String email;
     private String user_id;
+    private String username;
+    private String avatar;
 
-    public User(String email, String user_id) {
+    public User(String email, String user_id, String username, String avatar) {
         this.email = email;
         this.user_id = user_id;
+        this.username = username;
+        this.avatar = avatar;
     }
 
     public User() {
@@ -19,9 +24,11 @@ public class User implements Parcelable {
     protected User(Parcel in) {
         email = in.readString();
         user_id = in.readString();
+        username = in.readString();
+        avatar = in.readString();
     }
 
-    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+    public static final Creator<User> CREATOR = new Creator<User>() {
         @Override
         public User createFromParcel(Parcel in) {
             return new User(in);
@@ -33,7 +40,15 @@ public class User implements Parcelable {
         }
     };
 
-    public static Parcelable.Creator<User> getCREATOR() {
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public static Creator<User> getCREATOR() {
         return CREATOR;
     }
 
@@ -53,11 +68,21 @@ public class User implements Parcelable {
         this.user_id = user_id;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "email='" + email + '\'' +
                 ", user_id='" + user_id + '\'' +
+                ", username='" + username + '\'' +
+                ", avatar='" + avatar + '\'' +
                 '}';
     }
 
@@ -70,5 +95,7 @@ public class User implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(email);
         dest.writeString(user_id);
+        dest.writeString(username);
+        dest.writeString(avatar);
     }
 }

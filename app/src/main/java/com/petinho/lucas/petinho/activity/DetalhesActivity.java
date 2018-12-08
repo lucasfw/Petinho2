@@ -21,6 +21,7 @@ public class DetalhesActivity extends AppCompatActivity {
     private TextView descricao;
     private TextView estado;
     private TextView preco;
+    private TextView telefone;
     private Anucio anucioSelecionado;
 
     @Override
@@ -29,7 +30,7 @@ public class DetalhesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalhes);
 
         //Configurar toolbar
-        getSupportActionBar().setTitle("Detalhe produto");
+        getSupportActionBar().setTitle("Detalhe Animal");
         //Inicializar componentes da interface
         inicializarComponentes();
 
@@ -39,7 +40,8 @@ public class DetalhesActivity extends AppCompatActivity {
         if(anucioSelecionado != null){
             titulo.setText(anucioSelecionado.getTitulo());
             descricao.setText(anucioSelecionado.getDescricao());
-            estado.setText(anucioSelecionado.getEstado());
+            telefone.setText(anucioSelecionado.getTelefone());
+            //estado.setText(anucioSelecionado.getEstado());
             preco.setText(anucioSelecionado.getValor());
 
             ImageListener imageListener = new ImageListener() {
@@ -63,6 +65,7 @@ public class DetalhesActivity extends AppCompatActivity {
     private void inicializarComponentes(){
         carouselView = findViewById(R.id.carouselView);
         titulo = findViewById(R.id.textTituloDetalhe);
+        telefone = findViewById(R.id.textTelefoneDetalhe);
         descricao = findViewById(R.id.textDescricaoDetalhe);
         estado = findViewById(R.id.textEstadoDetalhe);
         preco = findViewById(R.id.textPrecoDetalhe);

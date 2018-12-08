@@ -297,7 +297,7 @@ public class AnuciosActivity extends AppCompatActivity {
             menu.setGroupVisible(R.id.group_deslogado, true);
         }else{//Usuario logado
             menu.setGroupVisible(R.id.group_logado, true);
-            menu.setGroupVisible(R.id.group_perdidos, true);
+            //menu.setGroupVisible(R.id.group_perdidos, true);
         }
         return super.onPrepareOptionsMenu(menu);
     }
@@ -319,6 +319,10 @@ public class AnuciosActivity extends AppCompatActivity {
                 break;
             case R.id.menu_perdidos :
                 startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+                break;
+            case R.id.menu_doacoes :
+                startActivity(new Intent(getApplicationContext(), DoacoesActivity.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);
